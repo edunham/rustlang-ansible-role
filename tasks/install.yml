@@ -1,0 +1,11 @@
+---
+
+- name: Include Ubuntu-specific installation tasks
+  include: install/Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Run the Rustlang install script
+  shell: >
+    curl -s https://static.rust-lang.org/rustup.sh | sh -s -- -y
+  sudo: yes
+  changed_when: false
