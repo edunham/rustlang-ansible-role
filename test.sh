@@ -14,3 +14,5 @@ ansible-playbook test.yml -i vagrant-inventory \
   -vv | grep -q 'changed=0.*failed=0' \
     && (echo "Idempotence test: ${bold}${green}pass${normal}" && exit 0) \
     || (echo "Idempotence test: ${bold}${red}fail${normal}" && exit 1)
+
+vagrant destroy
